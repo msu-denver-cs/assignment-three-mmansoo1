@@ -32,3 +32,6 @@
 <% end %>
 
 <%= link_to 'New Part', new_part_path %>
+<%= link_to 'Log out',
+            destroy_user_session_path,
+            method: :delete %>

@@ -1,6 +1,7 @@
 class PartsController < ApplicationController
   before_action :set_part, only: [:show, :edit, :update, :destroy]
   autocomplete :part, :name, full_search: true
+  before_action :authenticate_user!
 
   def search
     @parts = Part.where('part like ?', "%#{params[:query]}%")

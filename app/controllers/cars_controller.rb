@@ -1,6 +1,6 @@
 class CarsController < ApplicationController
-  before_action :authenticate_user!, :set_car, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_car, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
   autocomplete :car, :make_id, full_search: true
 
   def search

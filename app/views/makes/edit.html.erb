@@ -4,3 +4,6 @@
 
 <%= link_to 'Show', @make %> |
 <%= link_to 'Back', makes_path %>
+<%= link_to 'Log out',
+            destroy_user_session_path,
+            method: :delete %>

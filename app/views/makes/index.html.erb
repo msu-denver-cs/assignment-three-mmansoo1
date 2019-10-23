@@ -34,3 +34,6 @@
 <% end %>
 
 <%= link_to 'New Make', new_make_path %>
+<%= link_to 'Log out',
+            destroy_user_session_path,
+            method: :delete %>

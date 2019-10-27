@@ -1,6 +1,11 @@
 require 'test_helper'
 
 class CarsControllerTest < ActionDispatch::IntegrationTest
+  test 'home' do
+    sign_in User.create(:email => "#{rand(50000)}@example.com")
+    get root_url
+    assert_response :success
+  end
   setup do
     @car = cars(:one)
   end

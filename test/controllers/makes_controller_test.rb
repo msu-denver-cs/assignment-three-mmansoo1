@@ -1,6 +1,11 @@
 require 'test_helper'
 
 class MakesControllerTest < ActionDispatch::IntegrationTest
+  test 'home' do
+    sign_in User.create(:email => "#{rand(50000)}@example.com")
+    get root_url
+    assert_response :success
+  end
   setup do
     @make = makes(:one)
   end

@@ -1,8 +1,12 @@
 require "application_system_test_case"
 
 class MakesTest < ApplicationSystemTestCase
+
+  include  Devise::Test::IntegrationHelpers
+
   setup do
     @make = makes(:one)
+    sign_in users(:one)
   end
 
   test "visiting the index" do

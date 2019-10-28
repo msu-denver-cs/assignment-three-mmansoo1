@@ -1,8 +1,12 @@
 require "application_system_test_case"
 
 class PartsTest < ApplicationSystemTestCase
+
+  include Devise::Test::IntegrationHelpers
+
   setup do
     @part = parts(:one)
+    sign_in users(:one)
   end
 
   test "visiting the index" do

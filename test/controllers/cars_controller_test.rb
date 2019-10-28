@@ -1,13 +1,18 @@
 require 'test_helper'
 
 class CarsControllerTest < ActionDispatch::IntegrationTest
+
+  include Devise::Test::IntegrationHelpers
+
+  setup do
+    @car = cars(:one)
+    sign_in users(:one)
+  end
+
   test 'home' do
     sign_in User.create(:email => "#{rand(50000)}@example.com")
     get root_url
     assert_response :success
-  end
-  setup do
-    @car = cars(:one)
   end
 
   test 'should find car from fixture' do

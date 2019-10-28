@@ -1,8 +1,12 @@
 require "application_system_test_case"
 
 class CarsTest < ApplicationSystemTestCase
+
+  include Devise::Test::IntegrationHelpers
+
   setup do
     @car = cars(:one)
+    sign_in users(:one)
   end
 
   test "visiting the index" do
